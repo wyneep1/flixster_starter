@@ -12,8 +12,8 @@ let CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiK
 
 //Let functions
 let page = 1;
-let offset = 0;
-let values = "";
+//let offset = 0;
+//let values = "";
 //let search = true;
 
 let resultsArea = document.querySelector("#movies-grid"); //movie results
@@ -59,7 +59,7 @@ async function movieResults(wordSearch){
     
     //let API_URL = "https://api.themoviedb.org/3/search/movie?page=" + page +"&language=en-US&api_key=" +apiKey +"&query=" + values;
     const API_URL = search_api_url + wordSearch + `&page=${page}`;
-    console.log(`API request: ${API_URL}`);
+    console.log(`API request: ${API_URL}`); 
 
     let response = await fetch(API_URL);
     console.log("response is:", response);
@@ -92,17 +92,17 @@ function displayResults(data){
     
 }
 
- async function moreResults(wordSearch) {
+ async function moreResults() {
     page+=1;
     //offset = pageNum * limit;
     //showMore.classList.add("hidden");
         //movieResults(evt);
        // currentMovies(evt);
-       
-       const api_path = (wordSearch.length > 0) ? search_api_url + wordSearch + `&page=${page}`
+       let word = searchTerm();
+       const api_path = (word.length > 0) ? search_api_url + word + `&page=${page}`
        : CURRENT_URL + `&page=${page}`;
 
-       console.log(`Make API request to: ${api_path}`);
+      console.log(`Make request to: ${api_path}`);
        const responseData = await fetch(api_path).then(async (res) =>{
            return await res.json();
        });
@@ -114,7 +114,7 @@ async function currentMovies(){
     console.log("Inside function movieResults - form submitted");
     const apiUrl = CURRENT_URL + `&page=${page}`;
 
-    console.log(`api request: ${apiUrl}`);
+   console.log(`Make api request: ${apiUrl}`); 
     let response = await fetch(apiUrl);
     let responseData = await response.json();
     displayResults(responseData);
