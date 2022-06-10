@@ -1,10 +1,8 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Week 1 Assignment: Flixster
 
 Submitted by: **Wynee Pintado**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **10** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
@@ -30,7 +28,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
   - The results from the search should be displayed on the page
   - There should be a close icon with an id of `close-search-btn` that exits the search, clears results, and shows the current movies displayed previously
 - [x] Website accounts for basic HTML/CSS accessibility features
-- [ ] Website should be responsive
+- [x] Website should be responsive
 
 #### STRETCH FEATURES
 
@@ -41,24 +39,25 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [ ] Implement anything else that you can get done to improve the app functionality!
 
 ### Walkthrough Video
-
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+`https://recordit.co/4v5P9hfxmE`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Yes, I feel like the javascript lab, where we created the gif application helped alot with understanding API's because I was completely new to it.
+    Yes, I feel like the javascript lab, where we created the gif application helped alot with understanding API's because I was completely new to it. I felt like it prepared me enough by equipping me with the basic functions and allowing me to figure out what else to incorporate.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+    Yes, if I had more time I would definitely take more time to make it accessible! I really like the idea of a color mode switch so that I can allow for viewers who are color blind, or just tired of seeing color, view the site in a darker mode.
+
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+    Something that went well for me today was being able to demonstrate how all of my functions worked, as well as have some really nice CSS.
+    
+    One feature I noticed during the project demo that I would love to incorporate in my work is the color switch functionality and the scroll up function!
 
-Add your response here
+    I really would like to work on the popup stretch features as well, hopefully by end of tonight if anything!
 
 ### Open-source libraries used
 
@@ -66,4 +65,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to TA Snigdha Singh for helping me out with my clear button feature and to two of my partners, Gabriel Bremo and Jose Folgar!

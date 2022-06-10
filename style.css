@@ -1,7 +1,8 @@
 body{
-    background-color: rgba(160, 28, 28, 0.774);
+    /*background-color: rgba(160, 28, 28, 0.774);*/
     font-family: 'Courier New', Courier, monospace;
-   
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 23%, rgba(255,0,0,1) 100%);
 }
 form {
     display: flex;
@@ -16,9 +17,16 @@ form {
 h1{
     display: flex;
     justify-content: center;
-    color: rgb(211, 165, 50);
+    /*color: rgb(211, 165, 50);*/
     font-size: 50px;
+    animation: color-change 1s infinite;
+      
 }
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+  }
 #movies-grid{
     display: flex;
     display: grid;
@@ -48,7 +56,8 @@ h1{
   }
 #movie-title{
     text-align: center;
-    color:rgb(72, 11, 80);
+    color:rgb(226, 214, 102);
+    font-weight: bold;
     font-size: medium;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
@@ -72,7 +81,9 @@ h1{
 #movie-votes{
     text-align: center;
     font-size: medium;
+    color:rgb(214, 151, 33);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 .hidden{
     display: none;
