@@ -2,22 +2,42 @@
 const apiKey =  '0f982157345a90c670c6073ce6eabeaa';
 const showMore = document.querySelector('.load-more-movies-btn'); //show more button
 const submitFunction = document.querySelector("form"); //movie form
+//const 
 console.log("You are here");
 const searchInput = document.querySelector("#search-input"); //NEW
 //const limit = 0;
 const search_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
 let CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
 //let CURRENT_URL ="https://api.themoviedb.org/3/movie/now_playing?page="+"&language=en-US&api_key="+ apiKey; //GOT IT FROM currentMovies
-
+const reset = document.querySelector('#close-search-btn');
 
 //Let functions
 let page = 1;
-//let offset = 0;
-//let values = "";
-//let search = true;
+let searching = false;
 
+ /*reset.addEventListener('click', resetPage);
+ function resetPage(){
+    searchInput.value = "";
+    searching = true;
+ }*/
+
+ reset.addEventListener('click', () => {
+            searchInput.value = "";
+            let wordSearch = searchInput.value;
+            if(wordSearch.length == 0){
+                resultsArea.innerHTML = '';
+                currentMovies();
+            }
+           //we need to remove the results already displayed
+
+           //we have to find a way to make searchTerm == 0 so that it can tell handleFormSubmit that this happened 
+           //searching = true;
+         //  if(searching==true){
+              // currentMovies
+         //  }
+        });
 let resultsArea = document.querySelector("#movies-grid"); //movie results
-let currentResultsArea = document.querySelector("#current-movies"); //current movies
+//let currentResultsArea = document.querySelector("#current-movies"); //current movies
 
 function searchTerm(){
     return searchInput.value; //NEW
@@ -25,6 +45,7 @@ function searchTerm(){
 
 function handleFormSubmit(e){
     let wordSearch = searchTerm();
+    
     console.log("word is: " + wordSearch);
 
     e.preventDefault()
@@ -47,12 +68,14 @@ function handleFormSubmit(e){
     else {
         movieResults(wordSearch);
     }
+
    // searchHeader.classList.remove("hidden");
   //  searchHeader.innerHTML += `<h4 id="search-header"> Showing results for: ${submitForm.movie.value}`;
 
 }
 //event listeners
 submitFunction.addEventListener("submit",handleFormSubmit);
+
 
 async function movieResults(wordSearch){
     console.log("Inside function movieResults - form submitted");
@@ -111,6 +134,8 @@ function displayResults(data){
 }
 
 async function currentMovies(){
+    //searchInput.value = "";
+    page=1;
     console.log("Inside function movieResults - form submitted");
     const apiUrl = CURRENT_URL + `&page=${page}`;
 
