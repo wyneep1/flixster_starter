@@ -1,1 +1,68 @@
+body{
+    background-color: rgba(160, 28, 28, 0.774);
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+form {
+    display: flex;
+    justify-content: center;
 
+}
+#pop-up{
+   position: relative;
+   top: 40px; left: 40px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    color: rgb(211, 165, 50);
+    font-size: 50px;
+}
+#movies-grid{
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    flex-flow: column wrap;
+}
+
+.load-more-movies-btn{
+    display: flex;
+    margin: auto;
+    padding: 5px;
+    padding: 7px;
+    justify-content: center;
+    font-size: small;
+    background-color: rgb(153, 88, 153);
+    color: white;
+}
+#input {
+    border-radius: 10px;
+    min-width: 12vw;
+}
+#movie-title{
+    text-align: center;
+    color:rgb(72, 11, 80);
+    font-size: medium;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+.movie-poster{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    border-radius: 20px;
+}
+#movie-votes{
+    text-align: center;
+    font-size: medium;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.hidden{
+    display: none;
+}
