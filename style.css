@@ -39,18 +39,28 @@ h1{
     background-color: rgb(153, 88, 153);
     color: white;
 }
-#input {
+#search-input {
     border-radius: 10px;
     min-width: 12vw;
 }
+#search-input:hover {
+    background-color: rgb(214, 147, 147); /* Add a dark-grey background on hover */
+  }
 #movie-title{
     text-align: center;
     color:rgb(72, 11, 80);
     font-size: medium;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
-
 }
+
+#close-search-btn{
+    display: flex;
+    margin: auto;
+    min-width: 5vw;
+    justify-content: center;
+}
+
 .movie-poster{
     display: block;
     margin-left: auto;
