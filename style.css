@@ -26,7 +26,7 @@ h1{
     justify-items: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    flex-flow: column wrap;
+    
 }
 
 .load-more-movies-btn{
@@ -63,6 +63,7 @@ h1{
 
 .movie-poster{
     display: block;
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
@@ -75,4 +76,22 @@ h1{
 }
 .hidden{
     display: none;
+}
+
+@media (max-width: 1000px) {
+    #movies-grid{
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+@media (max-width: 800px) {
+#movies-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+#movies-grid{
+    grid-template-columns: 1fr;
+    }
 }

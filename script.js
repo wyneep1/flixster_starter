@@ -2,10 +2,10 @@
 const apiKey =  '0f982157345a90c670c6073ce6eabeaa';
 const showMore = document.querySelector('.load-more-movies-btn'); //show more button
 const submitFunction = document.querySelector("form"); //movie form
-//const 
+//const movieInfo= `https://api.themoviedb.org/3/movie/{movie_id}api_key=${apiKey}&language=en-US`
 console.log("You are here");
 const searchInput = document.querySelector("#search-input"); //NEW
-//const limit = 0;
+
 const search_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
 let CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
 //let CURRENT_URL ="https://api.themoviedb.org/3/movie/now_playing?page="+"&language=en-US&api_key="+ apiKey; //GOT IT FROM currentMovies
@@ -134,7 +134,6 @@ function displayResults(data){
 }
 
 async function currentMovies(){
-    //searchInput.value = "";
     page=1;
     console.log("Inside function movieResults - form submitted");
     const apiUrl = CURRENT_URL + `&page=${page}`;
