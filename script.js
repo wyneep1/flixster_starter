@@ -7,19 +7,12 @@ console.log("You are here");
 const searchInput = document.querySelector("#search-input"); //NEW
 
 const search_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
-let CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
-//let CURRENT_URL ="https://api.themoviedb.org/3/movie/now_playing?page="+"&language=en-US&api_key="+ apiKey; //GOT IT FROM currentMovies
+const CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
 const reset = document.querySelector('#close-search-btn');
 
 //Let functions
 let page = 1;
-let searching = false;
-
- /*reset.addEventListener('click', resetPage);
- function resetPage(){
-    searchInput.value = "";
-    searching = true;
- }*/
+let popUp = document.querySelector("#pop-up")
 
  reset.addEventListener('click', () => {
             searchInput.value = "";
@@ -29,15 +22,9 @@ let searching = false;
                 currentMovies();
             }
            //we need to remove the results already displayed
-
-           //we have to find a way to make searchTerm == 0 so that it can tell handleFormSubmit that this happened 
-           //searching = true;
-         //  if(searching==true){
-              // currentMovies
-         //  }
         });
 let resultsArea = document.querySelector("#movies-grid"); //movie results
-//let currentResultsArea = document.querySelector("#current-movies"); //current movies
+
 
 function searchTerm(){
     return searchInput.value; //NEW
@@ -117,10 +104,6 @@ function displayResults(data){
 
  async function moreResults() {
     page+=1;
-    //offset = pageNum * limit;
-    //showMore.classList.add("hidden");
-        //movieResults(evt);
-       // currentMovies(evt);
        let word = searchTerm();
        const api_path = (word.length > 0) ? search_api_url + word + `&page=${page}`
        : CURRENT_URL + `&page=${page}`;
@@ -144,6 +127,9 @@ async function currentMovies(){
     displayResults(responseData);
 }
 
+/*async function embedTrailer(){
+    const trailerUrl =`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
+}*/
 //showMore event listener
 showMore.addEventListener("click", moreResults);
 
