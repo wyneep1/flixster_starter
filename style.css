@@ -9,9 +9,26 @@ form {
     justify-content: center;
 
 }
-#pop-up{
-   position: relative;
-   top: 40px; left: 40px;
+.pop-up{
+   position: fixed;
+   font-size: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   color: rgb(216, 214, 214);
+   background-color: rgba(41, 39, 39, 0.685);
+   border-radius: 20px;
+   outline: none;
+   align-items: center;
+   box-shadow: 0 0 50px #BF40BF;
+   opacity: 100%;
+   max-width: 1080px;
+   max-height: 600px;
+   top: 20px;
+   left: 180px;
+   right: 180px;
+
 }
 
 h1{
@@ -36,6 +53,9 @@ h1{
     margin-bottom: 2vh;
     
 }
+.movie-poster:hover{
+    box-shadow: 0 0 50px #BF40BF;
+}
 
 .load-more-movies-btn{
     display: flex;
@@ -52,7 +72,7 @@ h1{
     min-width: 12vw;
 }
 #search-input:hover {
-    background-color: rgb(214, 147, 147); /* Add a dark-grey background on hover */
+    background-color: rgb(214, 147, 147);
   }
 #movie-title{
     text-align: center;
@@ -61,6 +81,17 @@ h1{
     font-size: medium;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
+}
+#close-pop-up{
+    padding: 5px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(74,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    color: white;
+    float: right;
+
+}
+#close-pop-up:hover{
+    background-color: rgb(214, 147, 147);
 }
 
 #close-search-btn{
@@ -85,6 +116,7 @@ h1{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
+
 .hidden{
     display: none;
 }
@@ -99,10 +131,27 @@ h1{
 #movies-grid{
     grid-template-columns: 1fr 1fr;
   }
+  .pop-up{
+    min-width: 300px;
+    min-height: 300px;
+    justify-content: center;
+    top: 90px;
+    left: 40px;
+    right: 40px;
+}
 }
 
 @media (max-width: 600px) {
 #movies-grid{
     grid-template-columns: 1fr;
-    }
+}
+.pop-up{
+    min-width: 300px;
+    min-height: 300px;
+    justify-content: center;
+    top: 90px;
+    left: 40px;
+    right: 40px;
+
+}
 }

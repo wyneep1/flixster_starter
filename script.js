@@ -2,18 +2,18 @@
 const apiKey =  '0f982157345a90c670c6073ce6eabeaa';
 const showMore = document.querySelector('.load-more-movies-btn'); //show more button
 const submitFunction = document.querySelector("form"); //movie form
-//const movieInfo= `https://api.themoviedb.org/3/movie/{movie_id}api_key=${apiKey}&language=en-US`
 console.log("You are here");
-const searchInput = document.querySelector("#search-input"); //NEW
-
+const searchInput = document.querySelector("#search-input"); 
 const search_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
 const CURRENT_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US`;
 const reset = document.querySelector('#close-search-btn');
-
+//const mainDiv = document.querySelector(".main");
+const popUp = document.querySelector(".pop-up");
 //Let functions
 let page = 1;
-let popUp = document.querySelector("#pop-up")
+let resultsArea = document.querySelector("#movies-grid"); //movie results
 
+//function to remove results using clear button
  reset.addEventListener('click', () => {
             searchInput.value = "";
             let wordSearch = searchInput.value;
@@ -23,11 +23,9 @@ let popUp = document.querySelector("#pop-up")
             }
            //we need to remove the results already displayed
         });
-let resultsArea = document.querySelector("#movies-grid"); //movie results
-
 
 function searchTerm(){
-    return searchInput.value; //NEW
+    return searchInput.value; 
 }
 
 function handleFormSubmit(e){
@@ -36,13 +34,6 @@ function handleFormSubmit(e){
     console.log("word is: " + wordSearch);
 
     e.preventDefault()
-    //values = evt.target.movie.value;
-
-   /* if(showMore.classList.contains("hidden")){
-        showMore.classList.add("hidden");
-    }
-    
-    */
     
     if(resultsArea){
         resultsArea.innerHTML = '';
@@ -56,18 +47,14 @@ function handleFormSubmit(e){
         movieResults(wordSearch);
     }
 
-   // searchHeader.classList.remove("hidden");
-  //  searchHeader.innerHTML += `<h4 id="search-header"> Showing results for: ${submitForm.movie.value}`;
-
 }
 //event listeners
 submitFunction.addEventListener("submit",handleFormSubmit);
 
-
+//function for getting results for using search bar 
 async function movieResults(wordSearch){
     console.log("Inside function movieResults - form submitted");
     
-    //let API_URL = "https://api.themoviedb.org/3/search/movie?page=" + page +"&language=en-US&api_key=" +apiKey +"&query=" + values;
     const API_URL = search_api_url + wordSearch + `&page=${page}`;
     console.log(`API request: ${API_URL}`); 
 
@@ -75,18 +62,17 @@ async function movieResults(wordSearch){
     console.log("response is:", response);
     let responseData = await response.json();
 
-   //showMore.classList.remove("hidden");
     console.log("responseData is:", responseData);
     displayResults(responseData);
 }
-
+//function for displaying results both searched and trending
 function displayResults(data){
     data.results.forEach((img)=>{
         if(img.poster_path == null){
             return;
-        }
+        }//I must figure out how to deal with img.id
         resultsArea.innerHTML+=`
-        <div class="movie-card">
+        <div class="movie-card" id=${img.id}"> 
         <img src = "https://image.tmdb.org/t/p/original${img.poster_path}" class=movie-poster alt="movie poster" />
         <p id="movie-title">${img.title}</p>
         <p id="movie-votes">Votes: ${img.vote_average}</p>
@@ -99,10 +85,11 @@ function displayResults(data){
     } else{
         showMore.classList.remove("hidden");
     }
-    
+   
 }
 
- async function moreResults() {
+ async function moreResults(e) {
+     e.preventDefault(); //do we need this? new
     page+=1;
        let word = searchTerm();
        const api_path = (word.length > 0) ? search_api_url + word + `&page=${page}`
@@ -124,12 +111,61 @@ async function currentMovies(){
    console.log(`Make api request: ${apiUrl}`); 
     let response = await fetch(apiUrl);
     let responseData = await response.json();
+   
+    console.log("response is: " + responseData);
     displayResults(responseData);
 }
 
-/*async function embedTrailer(){
-    const trailerUrl =`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
-}*/
+
+resultsArea.addEventListener('click', movieInformation); //click function for movie poster
+
+async function movieInformation(e){
+    let obj = e.target.id;
+    if(obj == ''){
+        obj = e.target.parentNode.id;
+        console.log("Object is" + obj);
+    }
+    else{
+
+    }
+    if(obj != 'movies-grid'){
+        let trailerUrl = `https://api.themoviedb.org/3/movie/${obj}?api_key=${apiKey}`
+        let response = await fetch(trailerUrl);
+        trailerUrl =`https://api.themoviedb.org/3/movie/${obj}/videos?api_key=${apiKey}`;
+        let videoInfo = await fetch(trailerUrl);
+        console.log("video info is: " + trailerUrl);
+        let videoInfo2 = await videoInfo.json();
+        let videoLink = null;
+
+        if(videoInfo2['results'].length > 0){
+            videoLink = videoInfo2['results'][0]['key']
+        }
+        displayPopUp(await response.json(), videoLink);
+    }
+
+}
+
+async function displayPopUp(movie, vidId){
+    console.log("movie has been clicked on");
+    popUp.innerHTML = `
+        <div class ="mode">
+        <button id="close-pop-up"> Close </button>
+        </div>
+        <h2> ${movie['title']} </h2>
+        <iframe src="https://www.youtube.com/embed/${vidId}" frameborder="0" allowfullscreen></iframe>
+        <h2><strong> Watch Trailer</strong></h2>
+        <h3> Synopsis: ${movie['overview']}</h3>
+        <h3> Runtime: ${movie['runtime']}mins</h3>
+        <h3> <strong>release date</strong>: ${movie['release_date']}</h3>
+    `;
+   document.getElementById('close-pop-up').addEventListener('click', removeElement);
+
+}
+
+function removeElement(e){
+    popUp.innerHTML = '';
+}
+
 //showMore event listener
 showMore.addEventListener("click", moreResults);
 

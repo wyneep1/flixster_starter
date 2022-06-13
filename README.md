@@ -33,9 +33,9 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 #### STRETCH FEATURES
 
 - [ ] Deploy website using GitHub Pages. 
-- [ ] Allow user to view more details about a movie within a popup.
-- [ ] Improve the user experience through CSS & animation.
-- [ ] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
+- [x] Allow user to view more details about a movie within a popup.
+- [x] Improve the user experience through CSS & animation.
+- [x] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
 - [ ] Implement anything else that you can get done to improve the app functionality!
 
 ### Walkthrough Video
@@ -55,9 +55,8 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
     Something that went well for me today was being able to demonstrate how all of my functions worked, as well as have some really nice CSS.
     
-    One feature I noticed during the project demo that I would love to incorporate in my work is the color switch functionality and the scroll up function!
+    One feature I noticed during the project demo that I would love to incorporate in my work is the color switch functionality and the scroll up function! So, next time I would like to try that!
 
-    I really would like to work on the popup stretch features as well, hopefully by end of tonight if anything!
 
 ### Open-source libraries used
 
