@@ -2,7 +2,7 @@
 
 Submitted by: **Wynee Pintado**
 
-Estimated time spent: **10** hours spent in total
+Estimated time spent: **13** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
@@ -39,7 +39,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 - [ ] Implement anything else that you can get done to improve the app functionality!
 
 ### Walkthrough Video
-`https://recordit.co/4v5P9hfxmE`
+`https://recordit.co/c9JJptyERk`
 
 ### Reflection
 
